@@ -11,6 +11,6 @@ def all_products(request):
     products = Product.objects.all()
     return render(request, 'store/home.html', {'products': products})
 
-def product_detail(request, slug):
+def product_details(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)
-    return render(reuest, 'store/products/detail.htm', {'product': product})
+    return render(request, 'store/products/detail.html', {'product': product})
