@@ -1,6 +1,7 @@
-from .models import Categoryv
+from .models import Category
+
 
 def categories(request):
     return {
-        'categories' : Category.objects.all()
-            }
+        'categories': Category.objects.all()
+    }
