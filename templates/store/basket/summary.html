@@ -15,7 +15,7 @@
 <div class="container">
   <div class="row g-3">
     {% if basket|length == 0 %}
-    <div class="col-12">Your basket is empty <a href="{% url 'store:store_home' %}">Shop</a></div>
+    <div class="col-12">Your basket is empty <a href="{% url 'basket:basket_summary' %}">Shop</a></div>
     {% else %}
     <div class="col-12 bg-light p-3 d-flex justify-content-between">
       <div class="d-flex d-flex-inline">
@@ -94,7 +94,7 @@
     var prodid = $(this).data("index");
     $.ajax({
       type: "POST",
-      url: '{% url "basket:basket_delete" %}',
+      {% comment %} url: '{% url "basket:basket_delete" %}', {% endcomment %}
       data: {
         productid: $(this).data("index"),
         csrfmiddlewaretoken: "{{csrf_token}}",
@@ -125,7 +125,7 @@
     var prodid = $(this).data("index");
     $.ajax({
       type: "POST",
-      url: '{% url "basket:basket_update" %}',
+      {% comment %} url: '{% url "basket:basket_update" %}', {% endcomment %}
       data: {
         productid: $(this).data("index"),
         productqty: $("#select" + prodid + " option:selected").text(),
